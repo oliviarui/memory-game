@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "pwa-msedge",
+            "name": "memory game",
+            "request": "launch",
+            "url": "D:\\Projects\\Visual Studio\\memory-game\\main.html"
+        }
+    ]
+}

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- PT Mono and Albert Sans font -->
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital@0;1&family=PT+Mono&display=swap" rel="stylesheet">
+    <script src="./script.js" async></script>
+</head>
+<body>
+    <h1>play a fun little memory game :)</h1>
+    
+    <div class="main">
+        <div class="instructions">
+            <h3>instructions</h3>
+            <p>after you press start, random squares will flash in the 3x3 grid below. 
+                your job is to remember the order of the squares and click the same sequence once the flashing stops.
+                <br> sequences get longer and flash slightly faster as the levels progress.
+                <br> good luck! ( •̀ ω •́ )y</p>
+        </div>
+        <div class="square-holder">
+            <div class="info">
+                <div id="level-counter">
+                    <p>level </p> <p id="level">?</p>
+                </div>
+                <div id="square-counter">
+                    <p id="squares-remaining">?</p> <p> squares remaining</p>
+                </div>
+            </div>
+            <!-- start -->
+            <div class="pop-up" id="start">
+                <p>
+                    press start to play
+                    <br> ╰(*°▽°*)╯ <br>
+                    <button id="start-button">start</button>
+                </p>
+            </div>
+            <!-- win -->
+            <div class="pop-up" id="win"> 
+                <p>
+                    wow! ◉v◉ next level? <br>
+                    <button id="next-level-button">obviously yes</button>
+                    <button id="exit-button">nah</button>
+                </p>
+            </div>
+            <!-- lose -->
+            <div class="pop-up" id="lose"> 
+                <p>
+                    that wasn't the correct square ಥ_ಥ<br>
+                    <button id="start-button-2">play again</button>
+                    <button id="exit-button-2">bye!</button>
+                </p>
+            </div>
+            <!-- ultimate win -->
+            <div class="pop-up" id="ultimate-win"> 
+                <p>
+                    you win!!! you have a very impressive memory👍 <br>
+                    <button id="start-button-3">play again</button>
+                    <button id="exit-button-3">bye!</button>
+                </p>
+            </div>
+            <div class="pop-up" id="countdown">
+                <p id="countdown-numbers"></p>
+            </div>
+    
+            <!-- squares -->
+            <div class="square" id="one"><p class="text" id="one-p"></p></div> 
+            <div class="square" id="two"><p class="text" id="two-p"></p></div> 
+            <div class="square" id="three"><p class="text" id="three-p"></p></div>
+            <div class="square" id="four"><p class="text" id="four-p"></p></div> 
+            <div class="square" id="five"><p class="text" id="five-p"></p></div> 
+            <div class="square" id="six"><p class="text" id="six-p"></p></div>
+            <div class="square" id="seven"><p class="text" id="seven-p"></p></div> 
+            <div class="square" id="eight"><p class="text" id="eight-p"></p></div> 
+            <div class="square" id="nine"><p class="text" id="nine-p"></p></div>
+        </div> 
+        <div class="lessons">
+            <h3>lessons learned!</h3>
+            <p>importance of removing event listeners<br>
+                cannot easily pass variables to event handler function! <br>
+                importance of drawing out the flow of a game and all the end points <br>
+                making one play level function and changing parameters</p>   
+        </div>
+    </div>
+    
+</body>
+</html>

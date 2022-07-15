@@ -1,0 +1,137 @@
+* {
+    background-color: #091E05;
+    font-family:'PT Mono', monospace;
+    color: whitesmoke;
+}
+
+p{
+    font-family:'Albert Sans', sans-serif;
+    font-size: 75%;
+}
+
+h1 {
+    width: 700px;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 250%;
+}
+
+.main {
+    width: 100%; /*full size of webpage*/
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.instructions {
+    width: 200px;
+    margin-left: 170px;
+    text-align: right;
+}
+
+.square-holder {
+    width: 400px;
+    height: 400px;
+    display: flex;
+    flex-wrap: wrap; /* helps content retain their size */
+    justify-content: center;
+    padding-bottom: 20px;
+    margin: 10px 0 0 50px;
+    border: 5px solid #9ABD97;
+    border-radius: 5px;
+}
+
+.square-holder p {
+    font-family:'PT Mono', monospace;
+    font-size: 90%;
+}
+
+.info {
+    width: 350px;
+    height: 50px;
+    margin: 0 auto;
+}
+
+#level-counter {
+    width: 30%;
+    /* display: inline-block; */
+    float: left;
+}
+
+#level-counter p {
+    display: inline-block;
+}
+
+#square-counter {
+    width: 70%;
+    /* display: inline-block; */
+    float: right;
+    text-align: right;
+}
+
+#square-counter p {
+    display: inline-block;
+}
+
+.square {
+    display: flex;
+    width: 100px;
+    height: 100px;
+    background-color:#9ABD97;
+    margin: 5px 10px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.text {
+    background-color: inherit;
+    text-align: center;
+}
+
+div .pop-up {
+    width: 300px;
+    height: 200px;
+    position: absolute;
+    top: 270px;
+    background-color: #091E05;
+    text-align: center;
+    visibility: hidden;
+    box-sizing: border-box; /* puts border inside the box */
+    border: 5px solid darkolivegreen; /* adding a border */
+    border-radius: 5px;
+}
+
+button {
+    /* buttons automatically have an inline-block display */
+    margin: 10px auto;
+    width: 25%;
+    height: 30px;
+    border: none;
+    background-color:darkolivegreen;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color:olive;
+}
+
+.pop-up p {
+    background-color: inherit;
+    padding-top: 10%;
+}
+
+.pop-up button {
+    display: inline-block;
+    width: 100px;
+    height: fit-content;
+    padding: 10px 10px;
+}
+
+#start {
+    visibility: visible;
+}
+
+.lessons {
+    margin-left: 50px;
+    width: 200px;
+}
