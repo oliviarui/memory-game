@@ -3,8 +3,8 @@
     font-family:'PT Mono', monospace;
     color: whitesmoke;
 }
-
-p{
+/* Desktop Styles */
+p, li{
     font-family:'Albert Sans', sans-serif;
     font-size: 75%;
 }
@@ -125,6 +125,7 @@ button:hover {
     width: 100px;
     height: fit-content;
     padding: 10px 10px;
+    font-size: 80%;
 }
 
 #start {
@@ -138,15 +139,100 @@ button:hover {
 
 /* Mobile Styles */
 @media only screen and (max-width: 400px) {
-    
+    h1 {
+        width: 100%;
+        font-size: 100%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    .instructions, .lessons  {
+        display: block;
+        margin: 0 auto;
+        font-size: 50%;
+        text-align: center;
+    }
+    .lessons li{
+        text-align: left;
+    }
+    .square-holder {
+        width: 75%;
+        height: 150px;
+        margin: 10px auto;
+        border-width: 2px;
+        border-radius: 2px;
+    }
+    .info {
+        width: 75%;
+        height: 20px;
+        font-size: 30%;
+    }
+    .square {
+        width: 30%;
+        height: 40px;
+        margin: 2px 2px;
+    }
+    div .pop-up {
+        top: 200px;
+        width: 100px;
+        height: 80px;
+        border-width: 2px;
+        border-radius: 2px;
+    }
+    .pop-up p {
+        font-size: 30%;
+    }
+    .pop-up button {
+        width: 50px;
+        height: 20px;
+        font-size: 50%;
+        padding-top: 5px;
+    }
 }
 
 /* Tablet Styles */
 @media only screen and (min-width: 401px) and (max-width: 960px) {
-  
-}
-
-/* Desktop Styles */
-@media only screen and (min-width: 961px) {
-  
+    h1 {
+        width: 100%;
+        font-size: 150%;
+        margin: 20px auto;
+        text-align: center;
+    }
+    .instructions, .lessons  {
+        margin: 0 auto;
+        font-size: 75%;
+        width: 20%;
+    }
+    .square-holder {
+        width: 50%;
+        height: 300px;
+        margin: 10px auto;
+        border-width: 2px;
+        border-radius: 2px;
+    }
+    .info {
+        width: 75%;
+        height: 20px;
+        font-size: 60%;
+    }
+    .square {
+        width: 30%;
+        height: 30%;
+        margin: 2px 2px;
+    }
+    div .pop-up {
+        top: 170px;
+        width: 150px;
+        height: 100px;
+        border-width: 2px;
+        border-radius: 2px;
+    }
+    .pop-up p {
+        font-size: 60%;
+    }
+    .pop-up button {
+        width: 50px;
+        height: 20px;
+        font-size: 50%;
+        padding-top: 5px;
+    }
 }
