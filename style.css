@@ -22,10 +22,40 @@ h1 {
     flex-wrap: wrap;
 }
 
-.instructions {
-    width: 200px;
-    margin-left: 170px;
-    text-align: right;
+.instructions, .lessons {
+    width: 220px;
+    height: max-content;
+    margin-top: 10px;
+    margin-left: 120px;
+    border: 5px dashed #9ABD97;
+    border-radius: 5px;
+    padding: 0 10px;
+}
+
+.instructions h3, .lessons h3 {
+    display: inline-block;
+    margin: 10px 0;
+    width: fit-content;
+}
+
+.instructions p, .lessons ul {
+    display: none;
+}
+
+.add, .remove {
+    display: block;
+    position: relative;
+    top: 8px;
+    right: 0;
+    float: right;
+    cursor: pointer;
+}
+
+.remove {
+    position: relative;
+    top: 8px;
+    left: 22px;
+    visibility: hidden;
 }
 
 .square-holder {
@@ -134,7 +164,6 @@ button:hover {
 
 .lessons {
     margin-left: 50px;
-    width: 200px;
 }
 
 /* Mobile Styles */
@@ -150,7 +179,14 @@ button:hover {
         margin: 0 auto;
         font-size: 50%;
         text-align: center;
+        border: 2px dashed #9ABD97;
+        border-radius: 2px;
     }
+    .instructions h3, .lessons h3 {
+        display: block;
+        margin: 2% auto;
+    }
+
     .lessons li{
         text-align: left;
     }

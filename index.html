@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <!-- PT Mono and Albert Sans font -->
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital@0;1&family=PT+Mono&display=swap" rel="stylesheet">
+    <!-- icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <script src="./script.js" async></script>
 </head>
 <body>
@@ -16,10 +18,16 @@
     <div class="main">
         <div class="instructions">
             <h3>instructions</h3>
-            <p>after you press start, random squares will flash in the 3x3 grid below. 
+            <span class="material-symbols-outlined add" id="open-instr">
+                add
+            </span>
+            <span class="material-symbols-outlined remove" id="close-instr">
+                remove
+            </span>
+            <p id="text-instr">after you press start, random squares will flash in the 3x3 grid below. 
                 your job is to remember the order of the squares and click the same sequence once the flashing stops.
-                <br> sequences get longer and flash slightly faster as the levels progress.
-                <br> good luck! ( •̀ ω •́ )y</p>
+                <br><br> sequences get longer and flash slightly faster as the levels progress.
+                <br><br> good luck! ( •̀ ω •́ )y</p>
         </div>
         <div class="square-holder">
             <div class="info">
@@ -78,8 +86,14 @@
             <div class="square" id="nine"><p class="text" id="nine-p"></p></div>
         </div> 
         <div class="lessons">
-            <h3>lessons learned!</h3>
-            <ul>
+            <h3>lessons learned</h3>
+            <span class="material-symbols-outlined add" id="open-lesson">
+                add
+            </span>
+            <span class="material-symbols-outlined remove" id="close-lesson">
+                remove
+            </span>
+            <ul id="text-lesson">
                 <li>the importance of removing event listeners</li>
                 <li>I cannot easily pass variables to event handler function!</li>
                 <li>the importance of drawing out the flow of a game and all the end points</li>

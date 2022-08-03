@@ -9,6 +9,41 @@ squares.forEach(function(square) {
     square.p = square.querySelector('.text')
 })
 
+//get instructions elements
+const instrShow = document.getElementById('open-instr')
+const instrHide = document.getElementById('close-instr')
+const instrText = document.getElementById('text-instr')
+//get lessons learned elements
+const LessonShow = document.getElementById('open-lesson')
+const LessonHide = document.getElementById('close-lesson')
+const LessonText = document.getElementById('text-lesson')
+//make instructions and lessons learned interactive
+instrShow.onclick = showInstructions
+instrHide.onclick = hideInstructions
+LessonShow.onclick = showLesson
+LessonHide.onclick = hideLesson
+
+function showInstructions() {
+    instrShow.style.visibility = 'hidden'
+    instrHide.style.visibility = 'visible'
+    instrText.style.display = 'block'
+}
+function hideInstructions() {
+    instrHide.style.visibility = 'hidden'
+    instrShow.style.visibility = 'visible'
+    instrText.style.display = 'none'
+}
+function showLesson() {
+    LessonShow.style.visibility = 'hidden'
+    LessonHide.style.visibility = 'visible'
+    LessonText.style.display = 'block'
+}
+function hideLesson() {
+    LessonHide.style.visibility = 'hidden'
+    LessonShow.style.visibility = 'visible'
+    LessonText.style.display = 'none'
+}
+
 //get counters
 const remainCount = document.getElementById('squares-remaining')
 const levelCount = document.getElementById('level')
