@@ -1,4 +1,3 @@
-//how to get a bunch of elements by id using a for loop
 //get all squares
 const ids = ['one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
 const squares = []
@@ -84,11 +83,13 @@ exit2.addEventListener('click', homePage)
 exit3.addEventListener('click', homePage)
 
 
-//create level sequence lengths and add to next level button properties
+//create all level sequence lengths and speed
+//this part controls how difficult each level will be
 const allSeqLens = [3, 4, 5, 6, 6, 7]
 const allTimeouts = [500, 500, 500, 500, 400, 400]
 let level = 0
 
+//show home page and hide all pop-up boxes that are not needed
 function homePage() {
     winBox.style.visibility = 'hidden'
     loseBox.style.visibility = 'hidden'
@@ -99,36 +100,37 @@ function homePage() {
     reset()
 }
 
+//main play game function
 function playLevel() {
     //get correct parameters for current level
     const seqLen = allSeqLens[level]
     const timeout = allTimeouts[level]
 
-    //hide all boxes
+    //hide all pop-up boxes that are not needed
     startBox.style.visibility = 'hidden'
     winBox.style.visibility = 'hidden'
     loseBox.style.visibility = 'hidden'
     bigWinBox.style.visibility = 'hidden'
 
-    //reset square css and html
+    //reset css and html for all squares
     reset()
 
-    //generate sequence
+    //randomly generate sequence that will be shown to the user
     const sequence = generateSequence(seqLen)
 
-    //countdown
+    //countdown before showing the sequence to the user
     countdownSequence()
 
-    //show squares
-    let remaining = 1; //update reaining squares
+    //show user the sequence of squares
+    let remaining = 1; //update remaining squares displayed in the top right of the game box
     let timeoutCount = 5000 + timeout //5000 is how long the countdown takes
-    const totalTimeout = 5000 + (timeout * 2) * seqLen
-    sequence.forEach(function(square) {
+    const totalTimeout = 5000 + (timeout * 2) * seqLen //calculate the total amount of time it will take before allowing the user to click
+    sequence.forEach(function(square) { //show user the sequence they need to click by changing css of squares
         setTimeout(changeColorStatic, timeoutCount, square)
-        timeoutCount += timeout
+        timeoutCount += timeout //update the timeout
         setTimeout(changeColorBackStatic, timeoutCount, square, remaining)
         timeoutCount += timeout
-        remaining++
+        remaining++ //update the remaining squares
     })
 
     //allow user to click squares
@@ -137,12 +139,15 @@ function playLevel() {
     setTimeout(setSquares, totalTimeout, sequence)
 }
 
+//changing the level displayed in the upper left corner of the game box
 function updateLevel() {
     levelCount.innerHTML = level + 1
+    //call the level function to allow the user to play the next level
     playLevel()
-    level++
+    level++ //increase the level count
 }
 
+//reset the html and css for all squares as well as the count of the number of squares
 function reset() {
     remainCount.innerHTML = '?'
     squares.forEach(function(square) {
@@ -154,11 +159,12 @@ function reset() {
     })
 }
 
-//remember set timeout doesn't add the timeouts by itself, you have to set the total timeout length
+//count down from three before showing the user the generated sequence
 function countdownSequence() {
     countdownBox.style.visibility = 'visible'
-    countdown.innerHTML = 'level ' + (level + 1)
     //show level
+    countdown.innerHTML = 'level ' + (level + 1)
+    //begin countdown, show each number/prompt for one second
     setTimeout(function() {
        countdown.innerHTML = '3'
     }, 1000)
@@ -178,30 +184,33 @@ function countdownSequence() {
     }, 5000)
 }
 
+//randomly generate a sequence of squares based on a given number of squares
 function generateSequence(num) {
     const sequence = []
     let count = 0
     while(count < num) {
-        const index = parseInt(Math.random() * 9)
-        sequence.push(squares[index])
-        count++
+        const index = parseInt(Math.random() * 9) //randomly choose a square out of 9
+        sequence.push(squares[index]) //add the square to the sequence
+        count++ //keep track of number of squares added to sequence
     }
     return sequence
 }
 
+//make the squares clickable for the users
 function clickable() {
-    //add click event listeners for all squares
+    //add click event listeners for all squares to change color when the user presses down
     squares.forEach(function(square) {
         square.addEventListener('mousedown', changeColor)
         square.addEventListener('mouseup', changeColorBack)
     })
 }
 
+//give squares the correct event handlers based on if they are next in the sequence or not
 function setSquares(sequence) {
     for(let i  = 0; i < sequence.length; i++) {
         sequence[i].s = sequence
     }
-    sequence[0].next = 1;
+    sequence[0].next = 1; //store the index of the next square in the sequence as a property of the current square
 
     const correctSquare = sequence[0]
     squares.forEach(function(square) {
@@ -216,7 +225,9 @@ function setSquares(sequence) {
 // !!! you cannot pass parameters to event handler functions,
 // the parameters must somehow be stored within the event target itself
 function correct(event) {
+    //get the index of the next correct square in the sequence from the current correct square
     const nextIndex = event.target.next
+    //get entire array of square sequence
     const sequence = event.target.s
     //update remaining squares count
     remainCount.innerHTML = sequence.length - nextIndex
@@ -232,9 +243,9 @@ function correct(event) {
         }
     } else { //user has not completed sequence, so continue
         //update correct square and give the new correct square the next index in the sequence
-        let correctSquare = sequence[nextIndex]
-        delete event.target.next
-        correctSquare.next = nextIndex + 1
+        let correctSquare = sequence[nextIndex] //get new correct square based on the next index
+        delete event.target.next //remove the next property from the current correct square
+        correctSquare.next = nextIndex + 1 //give the new correct square the next index property
 
         //update event listeners according to new correct square
         squares.forEach(function(square) {
@@ -259,11 +270,14 @@ function incorrect(event) {
     //remove all event listeners for squares
     removeSquareListeners()
 
+    //change the css of the square to indicate to the user that they clicked wrong
     event.target.style.backgroundColor = wrongColor
     event.target.p.innerHTML = 'X﹏X'
+    //prompt the user to see if they want to play again
     loseBox.style.visibility = 'visible'    
 }
 
+//remove all event listeneres for all squares
 function removeSquareListeners() {
     squares.forEach(function(square) {
         square.removeEventListener('click', incorrect)
